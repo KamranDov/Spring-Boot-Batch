@@ -1,0 +1,28 @@
+#Project Name
+spring:
+  application:
+    name: BatchExample
+  h2:
+    console:
+      enabled: true
+  #Database Config
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:batchDemo
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    database: h2
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          batch_size: 10
+          order_inserts: true
+          generate_statistics: true
+        hbm2ddl:
+          auto: create-drop
+server:
+  port: 1515
